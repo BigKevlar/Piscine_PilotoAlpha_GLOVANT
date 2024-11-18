@@ -9,8 +9,8 @@ hr {
 }
 
 #board {
-    width: 168px;
-    height: 168px;
+    width: 336px;
+    height: 336px;
     background-color: #9ac66b;
     border: 3px solid #637f45;
     margin: 0 auto;
@@ -20,12 +20,12 @@ hr {
 }
 
 .box {
-    width: 38px;
-    height: 38px;
-    border: 2px solid #637f45;
+    width: 80px;
+    height: 80px;
+    border:2px solid #637f45;
     border-radius: 40%;
     
-    font-size: 21px;
+    font-size: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
