@@ -2,6 +2,12 @@ body {
     font-family: Arial;
     font-weight: bold;
     text-align: center;
+    color: #4c4c4c;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: left 50% center;
+    background-repeat: no-repeat;
+    min-height: 70vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
 }
 
 hr {
@@ -17,6 +23,13 @@ hr {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+    position: relative; /* Necesario para animación */
+}
+
+.img {
+    width: 75px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .box {
@@ -29,6 +42,16 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.2s ease-in-out; /* Animación de movimiento */
+}
+
+.appear {
+    animation: scaleUp 0.2s ease; /* Efecto de aparición */
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
 }
 
 .x2 {

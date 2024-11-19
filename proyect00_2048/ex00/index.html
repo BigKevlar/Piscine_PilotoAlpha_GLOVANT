@@ -3,17 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>2048_jmartos-</title>
+        <title>2048</title>
+        <link rel="icon" href="favicon.png" type="image/png">
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script>
     </head>
     <body>
         <h1>2048</h1>
-        <h2>(jmartos-, 42_malaga)</h2>
-        <hr>
+        <h4>Junta los números hasta conseguir el 2048 en una casilla.<br>CÓMO SE JUEGA:<br>Usa las flechas del teclado para mover las casillas. Cuando juntas dos casillas con el mismo número sus valores se sumarán en una única casilla.</h4>
+        <button id="restart-button" onclick="restartGame()">New game</button>
         <h2>Score: <span id="score">0</span></h2>
         <div class="board" id="board">
-
         </div>
+        <br><br>
+        <footer>jmartos-, 42_malaga</footer>
+        <a href="https://github.com/BigKevlar">
+            <img class="img" src="github.jpg" alt="Link a GitHub profile">
+        </a>
     </body>
 </html>
