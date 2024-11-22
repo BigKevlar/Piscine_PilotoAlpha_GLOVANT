@@ -1,10 +1,12 @@
 services:
-  mariadb_glovant:
-    container_name: mariadb_glovant
-    # NOTA: No usamos 'image: mariadb:latest' porque vamos a tirar 
-    #       de configuracion del Dockerfile, asi que usamos 'build'.
-    build:
-      context: ./resources/mariadb
-      dockerfile: Dockerfile
+  nginx_glovant:
+    container_name: nginx_glovant
     env_file: .env
+    build:
+      context: ./resources
+      dockerfile: Dockerfile
+    volumes:
+      - ./resources:/usr/share/nginx/html
+    ports:
+      - "${NGINX_LOCAL_PORT}:${NGINX_DOCKER_PORT}"
     restart: always
