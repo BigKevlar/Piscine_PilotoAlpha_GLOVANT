@@ -10,42 +10,32 @@
     </head>
     <body>
         <header>
-            <div>
-              <button><img src="logo.png" alt="Logo de la portada" width="50" height="50"></button>
-              <form action="/buscar" method="GET">
-                <input type="text" name="query" placeholder="Buscar..." required>
-                <button type="submit">Buscar</button>
-              </form>
-            </div>
+            <button class="logo"><img src="logo.png" alt="Logo de la portada" width="50" height="50"></button>
             <nav>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Explore</a></li>
-                <li><a href="#">Collections</a></li>
-                <li><a href="#">Login</a></li>
-              </ul>
+                <div class="search-bar">
+                    <form action="/buscar" method="GET">
+                        <input type="text" name="query" placeholder="Buscar fotos e ilustraciones" required>
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
             </nav>
-          </header>
-          <main>
-            <section class="intro">
-              <h1>Beautiful, Free Images</h1>
-              <p>Explore millions of high-quality photos shared by talented creators.</p>
-              <form class="search-bar">
-                <input type="text" placeholder="Search free high-resolution photos">
-                <button type="submit">Search</button>
-              </form>
-            </section>
-            <section class="gallery">
-              <div class="image-card"><img src="https://via.placeholder.com/300" alt="Sample Image"></div>
-              <div class="image-card"><img src="https://via.placeholder.com/300" alt="Sample Image"></div>
-              <div class="image-card"><img src="https://via.placeholder.com/300" alt="Sample Image"></div>
-              <div class="image-card"><img src="https://via.placeholder.com/300" alt="Sample Image"></div>
-              <div class="image-card"><img src="https://via.placeholder.com/300" alt="Sample Image"></div>
-              <div class="image-card"><img src="https://via.placeholder.com/300" alt="Sample Image"></div>
-            </section>
-          </main>
-          <footer>
-            <p>© 2024 Unsplash Clone. All rights reserved.</p>
-          </footer>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicia sesion</a></li>
+                    <button type="submit">Enviar una imagen</button>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div>
+                <div id="image-container">
+                    <p>Galeria de imagenes aleatorias</p>
+                </div>
+                <button onclick="fetchRandomImage()">Obtener imagen</button>
+            </div>
+        </main>
+        <footer>
+            <p>© 2024 ImageGallery (Unsplash clone), made for jmartos- for 42_Malaga & Glovant.</p>
+        </footer>
     </body>
 </html>
