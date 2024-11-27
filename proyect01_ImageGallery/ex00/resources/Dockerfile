@@ -1,5 +1,5 @@
 # Imagen del contenedor.
-FROM nginx:latest
+FROM nginx
 
 COPY . /usr/share/nginx/html
 EXPOSE 80

@@ -1,6 +1,6 @@
 services:
-  nginx_glovant:
-    container_name: nginx_glovant
+  nginx:
+    container_name: nginx_globant
     env_file: .env
     build:
       context: ./resources

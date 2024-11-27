@@ -6,32 +6,15 @@
         <title>ImageGallery</title>
         <link rel="icon" href="favicon.png" type="image/png">
         <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
-            <button class="logo"><img src="logo.png" alt="Logo de la portada" width="50" height="50"></button>
-            <nav>
-                <div class="search-bar">
-                    <form action="/buscar" method="GET">
-                        <input type="text" name="query" placeholder="Buscar fotos e ilustraciones" required>
-                        <button type="submit">Buscar</button>
-                    </form>
-                </div>
-            </nav>
-            <nav>
-                <ul>
-                    <li><a href="#">Inicia sesion</a></li>
-                    <button type="submit">Enviar una imagen</button>
-                </ul>
-            </nav>
+            <button class="logo" onclick="fetchRandomImage()"><img src="logo.png" alt="Logo de la portada" width="50" height="50"></button>
         </header>
         <main>
-            <div>
-                <div id="image-container">
-                    <p>Galeria de imagenes aleatorias</p>
-                </div>
-                <button onclick="fetchRandomImage()">Obtener imagen</button>
+            <div class="gallery" id="ramdom_gallery">
+                <p>Galeria de imagenes aleatorias proporcionadas por la API de Unsplash</p>
             </div>
         </main>
         <footer>
