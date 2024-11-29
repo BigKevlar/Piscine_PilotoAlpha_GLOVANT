@@ -6,14 +6,16 @@
         <title>ImageGallery</title>
         <link rel="icon" href="favicon.png" type="image/png">
         <link rel="stylesheet" href="styles.css">
-        <script src="script.js" defer></script>
     </head>
     <body>
+        <script src="script.js" defer></script>
         <header>
             <button class="logo" onclick="fetchRandomImage()"><img src="logo.png" alt="Logo de la portada" width="50" height="50"></button>
-            <button onclick="loginButton()">LOGIN</button>
+            <button id="loginButon" onclick="loginButon()">LOGIN</button>
+            <button id="looutButon" onclick="logoutButon()">LOGOUT</button>
+            <button id="favButon" onclick="favButon()">ADD FAVOURITE</button>
         </header>
-        <main>
+        <main onload="mainFunction()" >
             <div>
                 <input type="text" id="searchBar" style="text-align: center;" placeholder="Buscamos lo que quieras"/>
                 <button id="searchButton">BUSCAR</button>

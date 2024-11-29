@@ -5,9 +5,12 @@ const IMAGES_COUNT = 6;
 //
 // PASOS PARA AUTENTICACION!
 //
-// 1- Conseguir el código de autorización "Redirect URI".
-//      urn:ietf:wg:oauth:2.0:oob
-// 2- Si el login tiene exito intercambiar el código por un access token.
+// 1- Conseguir el código de autorización y hacer una peticion con lo siguiente:
+//      - client_id: Tu Client ID.
+//      - redirect_uri: El Redirect URI configurado en el panel de control de Unsplash.
+//      - response_type: Generalmente code para obtener un código de autorización.
+//      - scope: Los permisos que solicitas.
+// 2- Si el login tiene exito intercambiar el código 'code' que te dan en la URL por un 'access_token'.
 // 3- Usar el access token para realizar solicitudes a la API de Unsplash en nombre del usuario.
 //
 // https://unsplash.com/documentation/user-authentication-workflow
@@ -15,9 +18,10 @@ const IMAGES_COUNT = 6;
 //
 const URL_OAUTH = 'https://unsplash.com/oauth/authorize';
 const CLIENT_ID = '${UNSPLASH_ACCESS_KEY}';
-const REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob';
+const REDIRECT_URI = 'http://localhost:8080';               // Codigo de redireccion, el cual tenemos que configurar en Unsplash.
 const RESPONSE_TYPE = 'code';                               // ??????
 const SCOPE = 'public';                                     // ??????
+const CODE = "";                                            // ??????
 
 async function fetchImages(query = "") {
     let endpoint;
@@ -58,6 +62,19 @@ function showImages(images) {
     });
 }
 
+function loginButon() {
+    location.href = `${URL_OAUTH}?client_id=${UNSPLASH_ACCESS_KEY}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
+}
+
+window.addEventListener('load', () => {
+    fetchImages();
+    let urlparams = new URLSearchParams(window.location.search);
+
+    if (urlparams.has("code")) {
+        document.getElementById('loginButon').style.display = 'none';
+    }
+});
+
 document.getElementById("searchButton").addEventListener("click", () => {
     const searchInput = document.getElementById("searchBar").value.trim();
     if (searchInput) {
@@ -66,12 +83,6 @@ document.getElementById("searchButton").addEventListener("click", () => {
         fetchImages();
     }
 });
-
-function loginButton() {
-    location.href = `${URL_OAUTH}?client_id=${UNSPLASH_ACCESS_KEY}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
-}
-
-window.onload = () => fetchImages();
 
 // Si solo queremos que nos muestre las imagenes aleatorias esta es la manera.
 // 
